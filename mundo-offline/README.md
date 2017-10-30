@@ -14,7 +14,7 @@ _Service Workers_ é uma _API_ de _JavaScript_ capaz de intereceptar requests, a
 
 Essa _API_ de _JavaScript_ é muito recente e está, aos poucos, sendo implementada nos _browsers_ mais atuais. Internet Explorer, Safari e Android \(versões que ainda não possuíam o Chrome instalado como um _app_\) ainda não possuem suporte. Sua aparição foi provocada devido a uma antiga _API_, _Application Cache_, que é muito difícil de lidar, principalmente porque se trata de um arquivo de texto, com as _URLs de arquivos que vão ser cacheados. Existem muitos outros pontos ruins dessa API_ que não serão tratados aqui.
 
-Como é um _worker_, que é instalado no navegador do usuário em uma _thread_ paralela, ele não interfere na performance da aplicação na _thread_ principal, no que diz respeito à consumo de memória, _CPU_ ou _GPU_.
+Como o Service Worker é um _worker_, que é instalado no navegador do usuário em uma _thread_ paralela, ele não interfere na performance da aplicação na _thread_ principal, no que diz respeito à consumo de memória, _CPU_ ou _GPU_.
 
 Nesse capítulo vamos entender como funciona a instalação e configuração de _Service Workers_ e como podemos trabalhar offline usando algumas estratégias de _cache_, usando _Cache API_.
 
