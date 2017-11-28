@@ -4,9 +4,13 @@ Para criar um _Service Worker_ é necessário um arquivo com todos os _handlers_
 
 ```js
 // no local da sua aplicação principal
-navigator.serviceWorker.register('/sw.js', { scope: '/' }).then((registration) => {
-  console.log(`Registration success in ${registration.scope} and status is: ${registration.status}`);
-}).catch((error) => console.log(`Errors happen... ${error}`));
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/sw.js', { scope: '/' }).then((registration) => {
+    console.log(`Registration success in ${registration.scope} and status is: ${registration.status}`);
+  }).catch((error) => console.log(`Errors happen... ${error}`));
+} else {
+  console.log('Service Worker is not working on your browser :(');
+}
 ```
 
 Dessa forma, já é possível saber se o registro do arquivo foi feito. Mas atenção para alguns detalhes:
