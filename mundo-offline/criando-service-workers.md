@@ -18,6 +18,7 @@ if ('serviceWorker' in navigator) {
 Dessa forma, já é possível saber se o registro do arquivo foi feito. Mas atenção para alguns detalhes:
 
 * O `scope` ali é em qual nível de _path_ o _Service Workers_ vai interceptar os _requests_. Se você colocar `/javascripts/` ele irá interceptar todos os _requests_ que tenham o _path_ "javascripts";
+* Sempre precisa passar o _path_ certinho do script do Service Worker, pra não haver erro no carregamento do arquivo.
 
 Lembrando que
 
