@@ -31,5 +31,5 @@ Quando registramos um Service Worker no browser, alguns eventos acontecem, e ele
 3- activate;  
 4- fetch.
 
-Cada p
+
 
