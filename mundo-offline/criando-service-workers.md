@@ -20,7 +20,7 @@ Dessa forma, já é possível saber se o registro do arquivo foi feito. Mas aten
 * O `scope` ali é em qual nível de _path_ o _Service Workers_ vai interceptar os _requests_. Se você colocar `/javascripts/` ele irá interceptar todos os _requests_ que tenham o _path_ "javascripts";
 * Sempre precisa passar o _path_ certinho do script do Service Worker, pra não haver erro no carregamento do arquivo.
 
-Lembrando que, ao checar a existência de Service Workers na interface do _navigator \_estamos seguindo um dos conceitos pilares do PWA, que é o de \_Progressive_. Se tiver suporte, ok. Se não, a aplicação continua funcionando da mesma forma, mas claro, sem as vantagens todas dessa API.
+Lembrando que, ao checar a existência de Service Workers na interface do _navigator _estamos seguindo um dos conceitos pilares do PWA, que é o de _Progressive_. Se tiver suporte, ok. Se não, a aplicação continua funcionando da mesma forma, mas claro, sem as vantagens todas dessa API.
 
 ## Lifecycle de Service Workers
 
