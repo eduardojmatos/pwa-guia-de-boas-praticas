@@ -57,3 +57,9 @@ Dentro da variável _event,_ retornada pelo listener do evento de _install_, é 
 
 É importante ressaltar que, o _waitUntil_ está disponível dentro dos _listeners_ de _install_ _e fetch,_ permitindo-nos controlar quando esses eventos vão retornar e avisar o _browser_ que estão resolvidos.
 
+### Activate
+
+Assim que o evento de install é finalizado, o evento _activate_ é disparado.
+
+
+
