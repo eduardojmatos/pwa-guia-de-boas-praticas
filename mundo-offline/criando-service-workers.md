@@ -33,7 +33,23 @@ Quando registramos um Service Worker no browser, alguns eventos acontecem, e ele
 
 ### Install
 
-Esse evento acontece logo quando um _Service Worker_ é registrado num _client_. _Client_ aqui é a página que registrou o mesmo. Você pode ter mais de uma página sendo _client_ do mesmo _Service Worker, _desde que obedeçam as regras de segurança, como estar no mesmo _scope_ de _path_, mesmo domínio e https.
+Esse evento acontece logo quando um _Service Worker_ é registrado num _client_. _Client_ aqui é a página que registrou o mesmo. Você pode ter mais de uma página sendo _client_ do mesmo _Service Worker, \_desde que obedeçam as regras de segurança, como estar no mesmo \_scope_ de _path_, mesmo domínio e https.
 
 No evento de _install_, geralmente fazemos o setup de tudo que é básico para nossa aplicação funcionar. É aí que podemos adicionar scripts comuns para seu _app_, assets no geral e tudo que é essencial pra que as coisas funcionem, da forma mais mínima possível.
+
+Um exemplo do evento install:
+
+```js
+self.addEventListener('install', function(event) {
+  console.log('instalando Service Worker...');
+
+  event.waitUntil(
+    caches.open('version-1').then(function(cache) {
+      cache.add('logo.svg');
+    });
+  );
+});
+```
+
+\*logo veremos um pouco mais sobre a _Cache API._
 
