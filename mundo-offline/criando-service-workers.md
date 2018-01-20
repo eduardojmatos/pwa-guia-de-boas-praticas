@@ -22,6 +22,10 @@ Dessa forma, já é possível saber se o registro do arquivo foi feito. Mas aten
 
 Lembrando que, ao checar a existência de _Service Workers_ na interface do _navigator_ estamos seguindo um dos conceitos pilares do PWA, que é o de _Progressive_. Se tiver suporte, ok. Se não, a aplicação continua funcionando da mesma forma, mas claro, sem as vantagens todas dessa API.
 
+## Estado de um Service Worker
+
+Quando fazemos uma operação de registro, no retorno da _Promise_, temos a interface _Service Worker Registration_ disponível. Esse objeto possui algumas propriedades e métodos que nos permitem saber o status do registro do worker, controlar o momento de atualização dele e um _handler_ de evento pra saber quando um _worker_ novo está sendo instalado.
+
 ## Lifecycle de Service Workers
 
 Quando registramos um Service Worker no browser, alguns eventos acontecem, e eles podem ser facilmente interceptados por listeners. Os eventos que ocorrem são:
@@ -59,7 +63,5 @@ Dentro da variável _event,_ retornada pelo listener do evento de _install_, é 
 
 ### Activate
 
-Assim que o evento de install é finalizado, o evento _activate_ é disparado.
-
-
+Assim que o evento de _install_ é finalizado, o evento _activate_ é disparado. Um _Service Worker_ entra no estado _active_ no _client_ quando esse evento é resolvido, pois dentro do _event.waitUntil_ retornamos uma _Promise_.
 
