@@ -83,8 +83,6 @@ updateCacheButton.addEventListener('click', (event) => {
   window.applicationCache.update();
   checkStatus(window.applicationCache.status);
 });
-
-
 ```
 
 O método _applicationCache.update\(\)_ força a atualização do _cache_ no _browser_ do usuário. Esse método apenas força o _download_ novamente de todos os arquivos que estão no manifesto. Pra que o cache seja de fato atualizado é necessário chamar o método _applicationCache.swapCache\(\)_. Os _logs_ ficam da seguinte forma, com esse _JavaScript_ acima, usado como exemplo:
@@ -92,4 +90,10 @@ O método _applicationCache.update\(\)_ força a atualização do _cache_ no _br
 ![](/assets/Screen Shot 2018-01-27 at 15.45.51.png)
 
 Se trocamos o logo, ou alterarmos algo, tanto no CSS, como na imagem ou no HTML, esse método renova a página. Quando o status do _ApplicationCache_ fica _IDLE_ \(que equivale ao número 1 ali no _log_\), podemos forçar um _reload_ automático da página, via _window.location.reload\(\)_.
+
+### Problemas com o ApplicationCache
+
+Como percebemos aqui, a grande dificuldade de trabalhar com _ApplicationCache_ é a gestão de arquivos que queremos armazenar no _browser_ do usuário. Se quisermos adicionar um arquivo novo para ser cacheado, precisamos adicioná-lo na lista do manifesto e forçar uma atualização no browser, como no _script_ demonstrado anteriormente.
+
+
 
