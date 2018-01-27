@@ -22,6 +22,7 @@ Para armazenar arquivos offline, usando _AppCache_, basta termos um arquivo com 
   </head>
   <body>
     <img src="images/offline-image.png" />
+    <button id="update-cache">Update cache!</button>
   </body>
 </html>
 ```
@@ -47,5 +48,35 @@ E se desabilitarmos o acesso à internet, dentro da aba _Network_, podemos ver q
 
 ![](/assets/Screen Shot 2018-01-27 at 13.49.00.png)
 
-_Application Cache_ é a forma mais simples de armazenarmos arquivos. O grande problema dessa API é controlar as atualizações e adição de novos arquivos. Podemos somente forçar a atualização via JavaScript, pois o _Application Cache_ tem uma interface onde é possível fazer essas atualizações via script. 
+_Application Cache_ é a forma mais simples de armazenarmos arquivos. O grande problema dessa API é controlar as atualizações e adição de novos arquivos. Podemos somente forçar a atualização via JavaScript, pois o _Application Cache_ tem uma interface onde é possível fazer essas atualizações via script.
+
+```js
+const checkStatus = (status) => {
+  if (status === window.applicationCache.UPDATEREADY) {
+    window.applicationCache.swapCache();
+  }
+
+  if (status === window.applicationCache.IDLE) {
+    window.location.reload();
+    return;
+  }
+
+  setTimeout(() => {
+    checkStatus(window.applicationCache.status);
+  }, 250);
+};
+
+/*
+ * Updating cache event
+ */
+const updateCacheButton = document.querySelector('#update-cache');
+
+updateCacheButton.addEventListener('click', (event) => {
+  window.applicationCache.update();
+  checkStatus(window.applicationCache.status);
+});
+
+```
+
+
 
