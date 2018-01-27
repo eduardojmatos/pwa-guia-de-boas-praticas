@@ -10,7 +10,7 @@ Junto com _Service Workers_ surgiu a _Cache API_, uma interface inteligente pra 
 
 # Criando Service Workers
 
-Para criar um _Service Worker_ é necessário um arquivo com todos os _handlers_ de eventos que usaremos. Antes disso, precisamos registrar o arquivo do _Service Worker_ criado, como no exemplo abaixo.
+Para criar um _Service Worker_ é necessário um arquivo com todos os _handlers_ de eventos que usaremos. Antes disso, precisamos registrar o arquivo do _Service Worker_ criado, no cliente, que no caso é a página visitada.
 
 ```js
 // no local da sua aplicação principal
