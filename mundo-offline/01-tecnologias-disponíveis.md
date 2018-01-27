@@ -19,6 +19,7 @@ Para armazenar arquivos offline, usando _AppCache_, basta termos um arquivo com 
     <meta charset="utf-8" />
     <title>AppCache test</title>
     <link rel="stylesheet" href="offline.css">
+    <script src="update-cache.js"></script>
   </head>
   <body>
     <img src="images/offline-image.png" />
@@ -34,6 +35,7 @@ CACHE MANIFEST
 index.html
 images/offline-image.png
 offline.css
+update-cache.js
 ```
 
 Se visualizarmos o _Developer Tools_ do _Chrome_, vamos perceber alguns _logs_ que aparecem, como na imagem abaixo:
@@ -75,7 +77,6 @@ updateCacheButton.addEventListener('click', (event) => {
   window.applicationCache.update();
   checkStatus(window.applicationCache.status);
 });
-
 ```
 
 
