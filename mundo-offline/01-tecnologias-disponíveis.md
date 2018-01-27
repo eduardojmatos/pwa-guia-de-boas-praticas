@@ -35,5 +35,27 @@ images/imagem-offline.jpg
 offline.css
 ```
 
-Se visualizarmos o
+Se visualizarmos o _Developer Tools_ do _Chrome_, &lt;!DOCTYPE html&gt;
+
+&lt;html manifest="files.appcache"&gt;
+
+  &lt;head&gt;
+
+    &lt;meta charset="utf-8" /&gt;
+
+    &lt;title&gt;AppCache test&lt;/title&gt;
+
+    &lt;link rel="stylesheet" href="offline.css"&gt;
+
+  &lt;/head&gt;
+
+  &lt;body&gt;
+
+    &lt;img src="imagem-offline.jpg" /&gt;
+
+  &lt;/body&gt;
+
+&lt;/html&gt;
+
+
 
