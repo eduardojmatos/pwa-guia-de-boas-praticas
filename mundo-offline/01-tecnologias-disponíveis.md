@@ -95,5 +95,5 @@ Se trocamos o logo, ou alterarmos algo, tanto no CSS, como na imagem ou no HTML,
 
 Como percebemos aqui, a grande dificuldade de trabalhar com _ApplicationCache_ é a gestão de arquivos que queremos armazenar no _browser_ do usuário. Se quisermos adicionar um arquivo novo para ser cacheado, precisamos adicioná-lo na lista do manifesto e forçar uma atualização no browser, como no _script_ demonstrado anteriormente.
 
-
+Existem outros problemas que o ApplicationCache tem, como o fato d
 
