@@ -21,7 +21,7 @@ Para armazenar arquivos offline, usando _AppCache_, basta termos um arquivo com 
     <link rel="stylesheet" href="offline.css">
   </head>
   <body>
-    <img src="imagem-offline.jpg" />
+    <img src="images/offline-image.png" />
   </body>
 </html>
 ```
@@ -31,31 +31,21 @@ E o arquivo "_files.appcache_" ficaria da seguinte forma:
 ```
 CACHE MANIFEST
 index.html
-images/imagem-offline.jpg
+images/offline-image.png
 offline.css
 ```
 
-Se visualizarmos o _Developer Tools_ do _Chrome_, &lt;!DOCTYPE html&gt;
+Se visualizarmos o _Developer Tools_ do _Chrome_, vamos perceber alguns _logs_ que aparecem, como na imagem abaixo:
 
-&lt;html manifest="files.appcache"&gt;
+![](/assets/Screen Shot 2018-01-27 at 13.44.24.png)
 
-  &lt;head&gt;
+Quando visitamos novamente a página, os _logs_ mudam:
 
-    &lt;meta charset="utf-8" /&gt;
+![](/assets/Screen Shot 2018-01-27 at 13.47.27.png)
 
-    &lt;title&gt;AppCache test&lt;/title&gt;
+E se desabilitarmos o acesso à internet, dentro da aba _Network_, podemos ver que a página continua funcionando:
 
-    &lt;link rel="stylesheet" href="offline.css"&gt;
+![](/assets/Screen Shot 2018-01-27 at 13.49.00.png)
 
-  &lt;/head&gt;
-
-  &lt;body&gt;
-
-    &lt;img src="imagem-offline.jpg" /&gt;
-
-  &lt;/body&gt;
-
-&lt;/html&gt;
-
-
+_Application Cache_ é a forma mais simples de armazenarmos arquivos. O grande problema dessa API é controlar as atualizações e adição de novos arquivos. Podemos somente forçar a atualização via JavaScript, pois o _Application Cache_ tem uma interface onde é possível fazer essas atualizações via script. 
 
