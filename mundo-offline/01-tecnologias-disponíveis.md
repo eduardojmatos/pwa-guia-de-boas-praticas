@@ -95,5 +95,9 @@ Se trocamos o logo, ou alterarmos algo, tanto no CSS, como na imagem ou no HTML,
 
 Como percebemos aqui, a grande dificuldade de trabalhar com _ApplicationCache_ é a gestão de arquivos que queremos armazenar no _browser_ do usuário. Se quisermos adicionar um arquivo novo para ser cacheado, precisamos adicioná-lo na lista do manifesto e forçar uma atualização no browser, como no _script_ demonstrado anteriormente.
 
-Existem outros problemas que o ApplicationCache tem, como o fato d
+Existem outros problemas que o ApplicationCache tem, além do fato dele não ser inteligente o suficiente em decidir quando cachear os arquivos, ou quando trazer arquivos offline ou atualizados do servidor. Além disso, não é nada "programático" adicionar ou remover arquivos do manifesto. Tudo é feito manualmente, ou através de scripts de automação, que adicionam e removem esses caminhos dos arquivos. Isso infelizmente não é tão inteligente. 
+
+Arquivos com _query string_ \(parâmetro nas URLs, ex: www.url.com?parametro=valor\) são considerados recursos diferentes, mesmo tendo o mesmo nome e caminho, novos arquivos vão fazer com o que o usuário tenha que baixar todos os arquivos do manifesto, mesmo que eles não tenham sido alterados... Enfim, temos vários problemas ao usar essa tecnologia.
+
+_Service Workers_ veio pra resolver a maioria desses problemas, por isso, não vamos ir a fundo em como implementar _ApplicationCache_ nos futuros projetos de _PWA_.
 
