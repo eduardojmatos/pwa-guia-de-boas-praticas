@@ -2,11 +2,11 @@
 
 Assim como os _Web Workers_, o _Service Worker_ é um _JavaScript_ que "instalamos" no browser do usuário. Ele trabalha em uma camada entre o _browser_ e o servidor, interceptando cada _request_ que o usuário fizer. Dessa forma, podemos decidir se vamos trazer os arquivos do armazenamento local ou se vamos diretamente no servidor. Esse poder de decisão é o grande trunfo do Service Workers. Como vimos com o ApplicationCache, isso não era possível.
 
-
-
 Abaixo, um gráfico mostrando aonde _Service Workers_ atua.
 
 ![](/assets/Screen Shot 2018-01-27 at 16.04.05.png)
+
+Junto com _Service Workers_ surgiu a _Cache API_, uma interface inteligente pra armazenarmos arquivos no _browser_. Nos próximos exemplos veremos como ela funciona e quais as estratégias podemos utilizar pra controlar arquivos localmente.
 
 # Criando Service Workers
 
