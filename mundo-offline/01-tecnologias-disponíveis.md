@@ -40,26 +40,32 @@ update-cache.js
 
 Se visualizarmos o _Developer Tools_ do _Chrome_, vamos perceber alguns _logs_ que aparecem, como na imagem abaixo:
 
-![](/assets/Screen Shot 2018-01-27 at 13.44.24.png)
+![](/assets/Screen Shot 2018-01-27 at 15.43.21.png)
 
 Quando visitamos novamente a página, os _logs_ mudam:
 
-![](/assets/Screen Shot 2018-01-27 at 13.47.27.png)
+![](/assets/Screen Shot 2018-01-27 at 15.44.16.png)
 
 E se desabilitarmos o acesso à internet, dentro da aba _Network_, podemos ver que a página continua funcionando:
 
-![](/assets/Screen Shot 2018-01-27 at 13.49.00.png)
+![](/assets/Screen Shot 2018-01-27 at 15.44.59.png)
 
 _Application Cache_ é a forma mais simples de armazenarmos arquivos. O grande problema dessa API é controlar as atualizações e adição de novos arquivos. Podemos somente forçar a atualização via JavaScript, pois o _Application Cache_ tem uma interface onde é possível fazer essas atualizações via script.
 
 ```js
 const checkStatus = (status) => {
+  console.log('ApplicationCache is:', status);
+
   if (status === window.applicationCache.UPDATEREADY) {
     window.applicationCache.swapCache();
   }
 
   if (status === window.applicationCache.IDLE) {
-    window.location.reload();
+    console.log('updating you cache in 3 seconds');
+
+    setTimeout(() => {
+      window.location.reload();
+    }, 3000);
     return;
   }
 
@@ -77,7 +83,13 @@ updateCacheButton.addEventListener('click', (event) => {
   window.applicationCache.update();
   checkStatus(window.applicationCache.status);
 });
+
+
 ```
 
+O método _applicationCache.update\(\)_ força a atualização do _cache_ no _browser_ do usuário. Esse método apenas força o _download_ novamente de todos os arquivos que estão no manifesto. Pra que o cache seja de fato atualizado é necessário chamar o método _applicationCache.swapCache\(\)_. Os _logs_ ficam da seguinte forma, com esse _JavaScript_ acima, usado como exemplo:
 
+![](/assets/Screen Shot 2018-01-27 at 15.45.51.png)
+
+Se trocamos o logo, ou alterarmos algo, tanto no CSS, como na imagem ou no HTML, esse método renova a página. Quando o status do _ApplicationCache_ fica _IDLE_ \(que equivale ao número 1 ali no _log_\), podemos forçar um _reload_ automático da página, via _window.location.reload\(\)_.
 
