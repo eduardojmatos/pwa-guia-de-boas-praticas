@@ -1,6 +1,6 @@
 # Service Workers
 
-Assim como os _Web Workers_, o _Service Worker_ é um _JavaScript_ que "instalamos" no browser do usuário. Ele trabalha em uma camada entre o _browser_ e o servidor, interceptando cada _request_ que o usuário fizer. Dessa forma, podemos decidir se vamos trazer os arquivos do armazenamento local ou se vamos diretamente no servidor. Esse poder de decisão é o grande trunfo do Service Workers. Como vimos com o ApplicationCache, isso não era possível.
+Assim como os _Web Workers_, o _Service Worker_ é um _JavaScript_ que "instalamos" no browser do usuário. Ele trabalha em uma camada entre o _browser_ e o servidor, interceptando cada _request_ que o usuário fizer. Dessa forma, podemos decidir se vamos trazer os arquivos do armazenamento local ou se vamos diretamente no servidor. Esse poder de decisão é o grande trunfo do _Service Workers_. Como vimos na _API_ de ApplicationCache, isso não era possível.
 
 Abaixo, um gráfico mostrando aonde _Service Workers_ atua.
 
@@ -28,9 +28,9 @@ if ('serviceWorker' in navigator) {
 Dessa forma, já é possível saber se o registro do arquivo foi feito. Mas atenção para alguns detalhes:
 
 * O `scope` ali é em qual nível de _path_ o _Service Workers_ vai interceptar os _requests_. Se você colocar `/javascripts/` ele irá interceptar todos os _requests_ que tenham o _path_ "javascripts";
-* Sempre precisa passar o _path_ certinho do script do Service Worker, pra não haver erro no carregamento do arquivo.
+* Sempre precisa passar o _path_ certo do script do Service Worker, e o _scope_ influencia nisso também.
 
-Lembrando que, ao checar a existência de _Service Workers_ na interface do _navigator_ estamos seguindo um dos conceitos pilares do PWA, que é o de _Progressive_. Se tiver suporte, ok. Se não, a aplicação continua funcionando da mesma forma, mas claro, sem as vantagens todas dessa API.
+Lembrando que, ao checar a existência de _Service Workers_ na interface do _navigator_ estamos seguindo um dos conceitos pilares do PWA, que é o de ser progressivo. Se tiver suporte, ok. Se não, a aplicação continua funcionando da mesma forma, mas claro, sem as vantagens todas dessa API.
 
 ## Estado de um Service Worker
 
